@@ -41,7 +41,7 @@ public class MoreDownload implements Runnable {
             if (file != null)
             {
                 out = new RandomAccessFile(file, "rwd");
-                System.out.println("!!!!!!!!!!!");
+                //System.out.println("!!!!!!!!!!!");
             }
             out.seek(start);
             InputStream in = conn.getInputStream();
@@ -50,8 +50,7 @@ public class MoreDownload implements Runnable {
             while ((len = in.read(b)) != -1)
             {
                 out.write(b, 0, len);
-
-                System.out.println("??????????????");
+                //System.out.println("??????????????");
             }
             in.close();
             out.close();
