@@ -16,19 +16,19 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  
 
 /**
- * Servlet implementation class UploadServlet
+ * Servlet implementation class Upload
  */
 @WebServlet("/Upload")
 public class Upload extends HttpServlet {
     private static final long serialVersionUID = 1L;
      
     // 上传文件存储目录
-    private static final String UPLOAD_DIRECTORY = "filedir";
+    private static final String UPLOAD_DIRECTORY = "Filedir";
  
     // 上传配置
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
+    private static final int MAX_FILE_SIZE      = 1024 * 1024 * 100; // 40MB
+    private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 124; // 50MB
  
     /**
      * 上传数据及保存文件
@@ -72,7 +72,6 @@ public class Upload extends HttpServlet {
  
         try {
             // 解析请求的内容提取文件数据
-            @SuppressWarnings("unchecked")
             List<FileItem> formItems = upload.parseRequest(request);
  
             if (formItems != null && formItems.size() > 0) {
@@ -88,16 +87,16 @@ public class Upload extends HttpServlet {
                         // 保存文件到硬盘
                         item.write(storeFile);
                         request.setAttribute("message",
-                            "文件上传成功!");
+                            "文件上传成功了↖(^ω^)↗!");
                     }
                 }
             }
         } catch (Exception ex) {
-        	request.setAttribute("message","上传失败！ ");
+        	request.setAttribute("message","上传失败了 ⊙﹏⊙!");
            /*request.setAttribute("message","错误信息: " + ex.getMessage());*/
         }
         // 跳转到 message.jsp
-        getServletContext().getRequestDispatcher("/uploadmessage.jsp").forward(
+        getServletContext().getRequestDispatcher("/message.jsp").forward(
                 request, response);
     }
 }

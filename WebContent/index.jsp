@@ -46,9 +46,9 @@ function downloadsr(){
 	<input type="file" name="uploadFile" />
 	<input type="submit" value="上传" />	
 </form>
-<form id="downloadsr" method="post" action="" enctype="multipart/form-data" style="display:none">
+<form id="downloadsr" method="post" action="/top.yun.gowith.cf/Download" style="display:none">
 	<input type="text" name="downloadFile" />
-	<input type="submit" value="离线下载" />
+	<input type="submit" value="下载" />
 </form>
 </div>
 
