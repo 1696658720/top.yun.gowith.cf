@@ -29,11 +29,19 @@ public class MoreDownload implements Runnable {
             //设置请求属性
             conn.setRequestProperty("Range", "bytes=" + start + "-" + end);
             //文件夹创建
-            File file = new File(filePath+"/"+filename);
+            File file = new File(filePath);
+            if (!file.exists()) {
+            	file.mkdir();
+            }
+            file = new File(filePath+"/"+filename);
+            if (!file.exists()) {
+            	file.createNewFile();
+            }
             RandomAccessFile out = null;
             if (file != null)
             {
                 out = new RandomAccessFile(file, "rwd");
+                System.out.println("!!!!!!!!!!!");
             }
             out.seek(start);
             InputStream in = conn.getInputStream();
@@ -42,6 +50,8 @@ public class MoreDownload implements Runnable {
             while ((len = in.read(b)) != -1)
             {
                 out.write(b, 0, len);
+
+                System.out.println("??????????????");
             }
             in.close();
             out.close();

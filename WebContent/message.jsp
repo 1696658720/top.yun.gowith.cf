@@ -13,7 +13,7 @@
 <h2>该页面显示3秒后自动跳转到云盘主页</h2>
 <script type="text/javascript">
 setTimeout(function(){
-	window.location="http://127.0.0.1:8084/";
+	window.location="http://yun.gowith.cf/";
 	},3000)
 </script>
 <h2><a href="index.jsp">直接跳转</a></h2>
